@@ -1,0 +1,13 @@
+// $Id$
+// vim:ft=javascript
+
+// If your extension references something external, use ARG_WITH
+// ARG_WITH("young", "for young support", "no");
+
+// Otherwise, use ARG_ENABLE
+// ARG_ENABLE("young", "enable young support", "no");
+
+if (PHP_YOUNG != "no") {
+	EXTENSION("young", "young.c");
+}
+

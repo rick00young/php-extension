@@ -1,0 +1,8 @@
+young.lo: /Users/rick/src/php-5.5.14/ext/young/young.c
+	$(LIBTOOL) --mode=compile $(CC)  -I. -I/Users/rick/src/php-5.5.14/ext/young $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)  -c /Users/rick/src/php-5.5.14/ext/young/young.c -o young.lo 
+$(phplibdir)/young.la: ./young.la
+	$(LIBTOOL) --mode=install cp ./young.la $(phplibdir)
+
+./young.la: $(shared_objects_young) $(YOUNG_SHARED_DEPENDENCIES)
+	$(LIBTOOL) --mode=link $(CC) $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS) $(LDFLAGS) -o $@ -export-dynamic -avoid-version -prefer-pic -module -rpath $(phplibdir) $(EXTRA_LDFLAGS) $(shared_objects_young) $(YOUNG_SHARED_LIBADD)
+
